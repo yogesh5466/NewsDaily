@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:shadowColor="#000"
             android:shadowRadius="1.0"
-            android:textColor="#666666"
+            android:textColor="#3D0317"
             android:textSize="17sp"
             android:layout_marginBottom="5dp"
             android:maxLines="2"
@@ -54,7 +54,7 @@
             android:minLines="2"
             android:scrollHorizontally="true"
             android:ellipsize="end"
-            android:text="This is news description bla bla bla..."/>
+            android:text="This is news description"/>
 
 
 
@@ -75,7 +75,7 @@
                 <TextView
                     android:id="@+id/author"
                     android:textSize="15sp"
-                    android:textColor="#42A5F5"
+                    android:textColor="#009688"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="News Author"/>
