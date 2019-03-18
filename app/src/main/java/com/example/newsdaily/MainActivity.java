@@ -18,10 +18,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class MainActivity extends AppCompatActivity {
 
     ListView listNews;
     ProgressBar loader;
+    private AdView mAdView;
     SwipeRefreshLayout swipe;
     ListNewsAdapter adapter = new ListNewsAdapter(MainActivity.this, null);
 
@@ -36,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MobileAds.initialize(this, "ca-app-pub-8646846566253884~8345791827");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         listNews = (ListView) findViewById(R.id.listNews);
         loader = (ProgressBar) findViewById(R.id.loader);
