@@ -3,6 +3,7 @@ package com.example.newsdaily;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,10 +20,10 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    String API_KEY = "e73a2ba82dde410ba3de46c358f7d527"; // ### YOUE NEWS API HERE ###
-    String NEWS_SOURCE = "bbc-news";
     ListView listNews;
     ProgressBar loader;
+    SwipeRefreshLayout swipe;
+    ListNewsAdapter adapter = new ListNewsAdapter(MainActivity.this, null);
 
     ArrayList<HashMap<String, String>> dataList = new ArrayList<HashMap<String, String>>();
     static final String KEY_AUTHOR = "author";
@@ -38,7 +39,17 @@ public class MainActivity extends AppCompatActivity {
 
         listNews = (ListView) findViewById(R.id.listNews);
         loader = (ProgressBar) findViewById(R.id.loader);
+        swipe = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         listNews.setEmptyView(loader);
+        swipe.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        dosomething();
+                    }
+                }
+        );
+
 
 
 
@@ -63,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             String xml = "";
 
             String urlParameters = "";
-            xml = Function.excuteGet("https://newsapi.org/v1/articles?source="+NEWS_SOURCE+"&sortBy=top&apiKey="+API_KEY, urlParameters);
+            xml = Function.excuteGet("https://newsapi.org/v2/everything?sources=the-times-of-india&apiKey=e73a2ba82dde410ba3de46c358f7d527", urlParameters);
             return  xml;
         }
         @Override
@@ -111,6 +122,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void dosomething(){
+        swipe.setRefreshing(false);
+        listNews.setAdapter(null);
+        adapter.notifyDataSetChanged();
+        dataList.clear();
+        DownloadNews newsTask = new DownloadNews();
+        newsTask.execute();
 
+    }
 
 }
