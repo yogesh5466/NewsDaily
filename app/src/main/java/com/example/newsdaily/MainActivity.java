@@ -26,8 +26,6 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
-    private android.support.v4.app.Fragment frag1,frag2,frag3;
-    Bundle bundle = new Bundle();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -36,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_url:
-                    bundle.putString("params","https://newsapi.org/v2/everything?sources=abc-news&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+                    Bundle bundle = new Bundle();
+                    bundle.putString("test","https://newsapi.org/v2/everything?sources=abc-news&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+                    android.support.v4.app.Fragment frag1 = new NewsFragment();
                     frag1.setArguments(bundle);
                     getSupportFragmentManager()
                             .beginTransaction()
@@ -45,8 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_qrcode:
-                    bundle.putString("params","https://newsapi.org/v2/everything?sources=the-times-of-india&apiKey=e73a2ba82dde410ba3de46c358f7d527");
-                    frag2.setArguments(bundle);
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString("test","https://newsapi.org/v2/everything?sources=the-times-of-india&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+                    android.support.v4.app.Fragment frag2 = new NewsFragment();
+                    frag2.setArguments(bundle1);
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.frame_fragmentholder, frag2)
@@ -54,8 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_ocr:
-                    bundle.putString("params","https://newsapi.org/v2/everything?sources=techcrunch&apiKey=e73a2ba82dde410ba3de46c358f7d527");
-                    frag3.setArguments(bundle);
+                    Bundle bundle2 = new Bundle();
+                    bundle2.putString("test","https://newsapi.org/v2/everything?sources=techcrunch&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+                    android.support.v4.app.Fragment frag3 = new NewsFragment();
+                    frag3.setArguments(bundle2);
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.frame_fragmentholder, frag3)
@@ -71,9 +75,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
-        frag1 = new NewsFragment();
-        frag2 = new NewsFragment();
-        frag3 = new NewsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("test","https://newsapi.org/v2/everything?sources=abc-news&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+        android.support.v4.app.Fragment frag1 = new NewsFragment();
+        frag1.setArguments(bundle);
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_fragmentholder, frag1)
@@ -83,5 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
 }

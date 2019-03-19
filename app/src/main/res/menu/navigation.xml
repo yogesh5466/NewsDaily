@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_url"
+        android:icon="@drawable/ic_iconfinder_globe_01_186398"
+        android:title="World"/>
+
+    <item
+        android:id="@+id/navigation_qrcode"
+        android:icon="@drawable/ic_india"
+        android:title="India"/>
+
+    <item
+        android:id="@+id/navigation_ocr"
+        android:icon="@drawable/ic_iconfinder_multimedia_37_809491"
+        android:title="Tech"/>
+
+</menu>
