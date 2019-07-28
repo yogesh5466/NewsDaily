@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.ProgressBar   ;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_url:
                     Bundle bundle = new Bundle();
-                    bundle.putString("test","https://newsapi.org/v2/everything?sources=abc-news&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+                    bundle.putString("test","https://newsapi.org/v2/everything?sources=abc-news&apiKey=APIKEY");
                     android.support.v4.app.Fragment frag1 = new NewsFragment();
                     frag1.setArguments(bundle);
                     getSupportFragmentManager()
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_qrcode:
                     Bundle bundle1 = new Bundle();
-                    bundle1.putString("test","https://newsapi.org/v2/everything?sources=the-times-of-india&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+                    bundle1.putString("test","https://newsapi.org/v2/everything?sources=the-times-of-india&apiKey=APIKEY");
                     android.support.v4.app.Fragment frag2 = new NewsFragment();
                     frag2.setArguments(bundle1);
                     getSupportFragmentManager()
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_ocr:
                     Bundle bundle2 = new Bundle();
-                    bundle2.putString("test","https://newsapi.org/v2/everything?sources=techcrunch&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+                    bundle2.putString("test","https://newsapi.org/v2/everything?sources=techcrunch&apiKey=APIKEY");
                     android.support.v4.app.Fragment frag3 = new NewsFragment();
                     frag3.setArguments(bundle2);
                     getSupportFragmentManager()
