@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
         Bundle bundle = new Bundle();
-        bundle.putString("test","https://newsapi.org/v2/everything?sources=abc-news&apiKey=e73a2ba82dde410ba3de46c358f7d527");
+        bundle.putString("test","https://newsapi.org/v2/everything?sources=abc-news&apiKey=APIKEY");
         android.support.v4.app.Fragment frag1 = new NewsFragment();
         frag1.setArguments(bundle);
         getSupportFragmentManager()
